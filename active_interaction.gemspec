@@ -1,10 +1,10 @@
-lib = File.expand_path('lib', __dir__)
+lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.push(lib) unless $LOAD_PATH.include?(lib)
 
 require 'active_interaction/version'
 
 Gem::Specification.new do |gem| # rubocop:disable Metrics/BlockLength
-  gem.name = 'active_interaction'
+  gem.name = 'jruby_active_interaction'
   gem.version = ActiveInteraction::VERSION
   gem.licenses = %w[MIT]
 

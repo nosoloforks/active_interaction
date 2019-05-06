@@ -29,7 +29,7 @@ module ActiveInteraction
     register :record
 
     # rubocop:disable Metrics/MethodLength
-    def cast(value, context, reconstantize: true, convert: true)
+    def cast(value, context, reconstantize = true, convert = true)
       @klass ||= klass
 
       if matches?(value)
@@ -37,15 +37,15 @@ module ActiveInteraction
       elsif reconstantize
         @klass = klass
         public_send(__method__, value, context,
-          reconstantize: false,
-          convert: convert
+          false,
+          convert
         )
       elsif !value.nil? && convert
         finder = options.fetch(:finder, :find)
         value = find(klass, value, finder)
         public_send(__method__, value, context,
-          reconstantize: reconstantize,
-          convert: false
+          reconstantize,
+          false
         )
       else
         super(value, context)
